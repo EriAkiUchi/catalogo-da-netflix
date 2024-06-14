@@ -115,7 +115,7 @@ void ReadArchiveToTree(TreeType* tree) {
       std::cout << "Leitura do arquivo feita com sucesso!\n\n";
     }
   } catch (...) {
-    std::cout << "\nNão foi possível ler o Arquivo\n";
+    std::cout << "\nNão foi possivel ler o Arquivo\n";
   }
 }
 
@@ -277,16 +277,16 @@ void CountPossibleShowsByRating(AVL* avl)
   //com a lista em mãos vamos fazer a busca dos titulos que tem estes retings:
   CountPossibleShowsByRatingInternal(avl->GetRoot(), possibleRatings, printChoice, count, total);
 
-  std::cout << "\n\nVocê pode assistir programas com as classificações \n";
+  std::cout << "\n\nVoce pode assistir programas com as classificacoes \n";
   for (const auto& str : possibleRatings)
   {
       std::cout << str <<", ";
   }
 
-  std::cout << "\nExistem " << count<< " progamas com esta(s) classificação(s).";
+  std::cout << "\nExistem " << count<< " progamas com esta(s) classificacao(s).";
   float percentage;
   percentage = ((float) count / (float) total)*100;
-  std::cout << "\nVocê Pode assistir " << percentage << "% dos Programas Totais, Programas totais = : "<<total ;
+  std::cout << "\nVoce Pode assistir " << percentage << "% dos Programas Totais, Programas totais = : "<<total ;
 }
 
 void CountPossibleShowsByRatingInternal(NodeAVL* node, std::vector<std::string> ratingList, int printChoice, int& count, int& total)
@@ -430,9 +430,9 @@ void CompareScores(AVL *avl){
   int option = 0;
   NodeAVL *root = avl->GetRoot();
   //Menu interno de opções. Para um título especifico e para todos os títulos
-	std::cout <<"Escolha a análise a ser realizada:\n"
-     << "\n[1] Apenas para um título especifico"
-     << "\n[2] Para Todos os Títulos de Filmes e Séries"
+	std::cout <<"Escolha a analise a ser realizada:\n"
+     << "\n[1] Apenas para um titulo especifico"
+     << "\n[2] Para Todos os Titulos de Filmes e Series"
 		 << "\nOption: ";
 	 std::cin >> option;
    std::cin.ignore();
@@ -440,7 +440,7 @@ void CompareScores(AVL *avl){
   // Se opção for apenas um título, pede o ID do título
   if (option == 1){
     std::string id;
-    std::cout << "Digite o ID do filme/série: " << std::endl;
+    std::cout << "Digite o ID do filme/serie: " << std::endl;
     std::getline(std::cin,id);
     //busca para um título 
     CompareOneScoresInternal(root, id);
@@ -459,21 +459,21 @@ void CompareScores(AVL *avl){
     float discrepancia = mediaImdb - mediaTmdb; 
     
     std::cout << "\n--------------------------------------------------------------\n"
-              << "\nComparação de todos as séries e filmes\n"
-              << "Total de Séries e Filmes analisados: " << count                       << "\n"
+              << "\nComparacao de todos as series e filmes\n"
+              << "Total de Series e Filmes analisados: " << count                       << "\n"
                                                          << std::fixed << std::setprecision(2) 
-              << "Média das notas da Crítica: "          << mediaImdb                   << "★\n"
-              << "Média das notas do Público: "          << mediaTmdb                   << "★\n\n"
-              << "Discrepância das médias das notas: "   << std::abs(discrepancia) * 10 << "% --> "
-                                                         << std::abs(discrepancia)      << "★\n"
+              << "Media das notas da Critica: "          << mediaImdb                   << "\n"
+              << "Media das notas do Publico: "          << mediaTmdb                   << "\n\n"
+              << "Discrepancia das medias das notas: "   << std::abs(discrepancia) * 10 << "% --> "
+                                                         << std::abs(discrepancia)      << "\n"
               ;
     // Realiza uma análise sobre a concordancia entre público e critica em relação a todos os títulos
     if(discrepancia <= 1 && discrepancia >= -1)
-      std::cout << "Em média, Público e Critica concordam" << std::endl;
+      std::cout << "Em media, Publico e Critica concordam" << std::endl;
     else if(discrepancia >= 2.5 || discrepancia <= -2.5)
-      std::cout << "Em média, Público e Critica discordam" << std::endl;
+      std::cout << "Em media, Publico e Critica discordam" << std::endl;
     else
-      std::cout << "Em média, Público e Critica discordam razoavelmente" << std::endl;
+      std::cout << "Em media, Publico e Critica discordam razoavelmente" << std::endl;
     
     std::cout << "\n--------------------------------------------------------------\n\n";
     return;
@@ -493,20 +493,20 @@ void CompareOneScoresInternal(NodeAVL* node,const std::string id){
       //Caso os dados sejam nulos ignora o título 
       if (notaImdb == 0|| notaTmdb == 0){
     std::cout << "\n--------------------------------------------------------------\n"
-              << "Dados insuficientes para gerar analise (nota Imdb ou nota Tmdb está(ão) vazio(s)"
+              << "Dados insuficientes para gerar analise (nota Imdb ou nota Tmdb esta(ao) vazio(s)"
               << "\n--------------------------------------------------------------\n\n";
         return;
       }
       // Mostra as informações em relação a esse título 
       std::cout 
         << "\n--------------------------------------------------------------\n"
-        << "\nTítulo: "               << node->GetPrograma().GetTitle() << " | "
+        << "\nTitulo: "               << node->GetPrograma().GetTitle() << " | "
         << "Generos: "                << node->GetPrograma().GetGenres()<< "\n"
-        << "Nota da crítica (IMDB): " << notaImdb                       << "★\n"
-        << "Nota do público (TMDB): " << notaTmdb                       << "★\n\n"
+        << "Nota da critica (IMDB): " << notaImdb                       << "\n"
+        << "Nota do público (TMDB): " << notaTmdb                       << "\n\n"
                                       << std::fixed << std::setprecision(2) 
-        << "Discrepância de notas: "  << std::abs(discrepancia) * 10    << "% --> "  
-                                      << std::abs(discrepancia)         << "★\n"
+        << "Discrepancia de notas: "  << std::abs(discrepancia) * 10    << "% --> "  
+                                      << std::abs(discrepancia)         << "\n"
         ;
 
       /*
@@ -521,27 +521,27 @@ void CompareOneScoresInternal(NodeAVL* node,const std::string id){
       
       if (notaTmdb >= 7){
         if(discrepancia <= 1 && discrepancia >= -1)
-          std::cout << "Filme/Série de qualidade | Critica concorda" << std::endl;
+          std::cout << "Filme/Serie de qualidade | Critica concorda" << std::endl;
         else if(discrepancia >= 2.5 || discrepancia <= -2.5)
-          std::cout << "Filme/Série de qualidade | Critica discorda" << std::endl;
+          std::cout << "Filme/Serie de qualidade | Critica discorda" << std::endl;
         else
-          std::cout << "Filme/Série de qualidade | Critica discorda razoavelmente" << std::endl;
+          std::cout << "Filme/Serie de qualidade | Critica discorda razoavelmente" << std::endl;
       }
       else if (notaTmdb >= 5.5){
         if(discrepancia <= 1 && discrepancia >= -1)
-          std::cout << "Filme/Série de qualidade mediana| Critica concorda" << std::endl;
+          std::cout << "Filme/Serie de qualidade mediana| Critica concorda" << std::endl;
         else if(discrepancia >= 2.5 || discrepancia <= -2.5)
-          std::cout << "Filme/Série de qualidade mediana| Critica discorda" << std::endl;
+          std::cout << "Filme/Serie de qualidade mediana| Critica discorda" << std::endl;
         else
-          std::cout << "Filme/Série de qualidade mediana| Critica discorda razoavelmente" << std::endl;
+          std::cout << "Filme/Serie de qualidade mediana| Critica discorda razoavelmente" << std::endl;
       }
       else{
         if(discrepancia <= 1 && discrepancia >= -1)
-          std::cout << "Filme/Série ruim| Critica concorda" << std::endl;
+          std::cout << "Filme/Serie ruim| Critica concorda" << std::endl;
         else if(discrepancia >= 2.5 || discrepancia <= -2.5)
-          std::cout << "Filme/Série ruim| Critica discorda (mas ninguem liga)" << std::endl;
+          std::cout << "Filme/Serie ruim| Critica discorda" << std::endl;
         else
-          std::cout << "Filme/Série ruim| Critica discorda razoavelmente (mas ninguem liga)" << std::endl;
+          std::cout << "Filme/Serie ruim| Critica discorda razoavelmente" << std::endl;
       }
       std::cout << "\n--------------------------------------------------------------\n";
       return;
@@ -673,8 +673,8 @@ void MSRatio(AVL* avl, int year)
   
   float p_movies = ((float) titles[1] / titles[2]) * 100; //Porcentagem de filmes
 
-  std::cout << "\nDo total de " << titles[2] << " títulos lançados em " << year << ":\n\n" << 
-    titles[0] << " foram séries (" << p_series << "% do total)\n\n" << 
+  std::cout << "\nDo total de " << titles[2] << " titulos lancados em " << year << ":\n\n" << 
+    titles[0] << " foram series (" << p_series << "% do total)\n\n" << 
     titles[1] << " foram filmes (" << p_movies << "% do total)" << std::endl;
   
 }

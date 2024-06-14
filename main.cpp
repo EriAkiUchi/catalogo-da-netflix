@@ -18,7 +18,7 @@ void PrintNodeBST(NodeBST *node) {
   if (node == nullptr)
     return;
   std::cout << "\nID: " << node->GetPrograma().GetId() << "\n"
-            << "Título: " << node->GetPrograma().GetTitle() << "\n"
+            << "Titulo: " << node->GetPrograma().GetTitle() << "\n"
             << "Tipo: " << node->GetPrograma().GetType() << "\n";
 }
 
@@ -77,11 +77,11 @@ void SearchBST(BST *bst) {
   auto end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> tempo1 = end - start;
   if (node) {
-    std::cout << "\nNode found:" << "\nnº de comparações: " << count;
+    std::cout << "\nNode found:" << "\nnumero de comparacoes: " << count;
     PrintNodeBST(node);
   } else
-    std::cout << "*** ERROR! Couldn't find node!\nnº de comparações: " << count << "\n";
-  std::cout << "Tempo de execução para BST: " << tempo1.count()
+    std::cout << "*** ERROR! Couldn't find node!\nnumero de comparacoes: " << count << "\n";
+  std::cout << "Tempo de execucao para BST: " << tempo1.count()
             << " milisegundos\n";
 }
 
@@ -160,13 +160,13 @@ void SearchAVL(AVL *avl) {
   auto end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double, std::milli> tempo2 = end - start;
   if (node) {
-    std::cout << "\nNode found:" << "\nnº de comparações: " << count;
+    std::cout << "\nNode found:" << "\nnumero de comparacoes: " << count;
     PrintNodeAVL(node);
   }
 
   else
-    std::cout << "*** ERROR! Couldn't find node!\nnº de comparações: " << count << "\n";
-  std::cout << "Tempo de execução para AVL: " << tempo2.count()
+    std::cout << "*** ERROR! Couldn't find node!\nnumero de comparacoes: " << count << "\n";
+  std::cout << "Tempo de execucao para AVL: " << tempo2.count()
             << " milisegundos\n";
 }
 
@@ -226,11 +226,11 @@ void ClearAVL(AVL *avl) { avl->Clear(); }
 
 void WriteToFile(AVL *avl) {
   bool saved;
-  saved = (SaveToArchive(avl, "arquivo_saída.csv"));
+  saved = (SaveToArchive(avl, "arquivo_saida.csv"));
   if (saved)
-    std::cout << "\nÁrvore salvada com sucesso!\n";
+    std::cout << "\nArvore salvada com sucesso!\n";
   else
-    std::cout << "\nNão foi possível salvar a árvore no arquivo\n";
+    std::cout << "\nNao foi possivel salvar a arvore no arquivo\n";
 }
 
 // MAIN____________________________________________________________________________________________
@@ -242,18 +242,18 @@ int main() {
   int option = 0;
   do {
     std::cout
-        << "Netflix Dataset Analysis:"
+        << "\n\nNetflix Dataset Analysis:"
         << "\n[1] Ler arquivo"
-        << "\n[2] Verificar quais programas você pode assistir de acordo com sua idade:"
+        << "\n[2] Verificar quais programas voce pode assistir de acordo com sua idade:"
         << "\n[3] Mostrar 5 melhores filmes e 5 piores filmes"
-        << "\n[4] Top 5 séries mais populares"
-        << "\n[5] Comparar score da crítica(imdb) com o score do público(tmdb)"
+        << "\n[4] Top 5 series mais populares"
+        << "\n[5] Comparar score da critica(imdb) com o score do publico(tmdb)"
         << "\n[6] Quantidade de filmes em cada categoria e suas respectivas porcentagens diante o total"
-        << "\n[7] Porcentagem de filmes e de séries lançadas em determinado ano"
-        << "\n[8] Inserir novo filme/série"
-        << "\n[9] Procure por um filme/série"
-        << "\n[10] Remover um filme/série"
-        << "\n[11] Exibir a alturas das árvores"
+        << "\n[7] Porcentagem de filmes e de series lancadas em determinado ano"
+        << "\n[8] Inserir novo filme/serie"
+        << "\n[9] Procure por um filme/serie"
+        << "\n[10] Remover um filme/serie"
+        << "\n[11] Exibir a alturas das arvores"
         << "\n[12] Salvar no arquivo "
         << "\n[0] Encerrar\n"
         << "Option: ";
@@ -275,7 +275,7 @@ int main() {
       CountPossibleShowsByRating(avl);
       break;
     case 3:
-      std::cout << "Digite um gênero de filme em inglês: ";
+      std::cout << "Digite um genero de filme em ingles: ";
       std::cin >> genre;
       std::cin.ignore();
       BestAndWorstScores(avl, genre);
@@ -308,8 +308,8 @@ int main() {
       RemoveAVL(avl);
       break;
     case 11:
-      std::cout << "\nAltura da árvore BST: " << bst->GetHeight() << "\n";
-      std::cout << "Altura da árvore AVL: " << avl->GetHeight() << "\n";
+      std::cout << "\nAltura da arvore BST: " << bst->GetHeight() << "\n";
+      std::cout << "Altura da arvore AVL: " << avl->GetHeight() << "\n";
       break;
     case 12:
       WriteToFile(avl);
@@ -318,7 +318,7 @@ int main() {
 
     std::cout << '\n';
   } while (option != 0);
-  std::cout<< "\n\n\t\t\t\t\t***FIM***\n";
+  std::cout<< "\n\n\t\t\t\t\t***FIM***\n\n";
   delete avl;
   delete bst;
 }
