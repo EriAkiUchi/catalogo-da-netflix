@@ -55,7 +55,7 @@ Opção de mostrar as alturas das árvores AVL e BST.
 ### Salvar no arquivo
 Opção de salvar o conteúdo da árvore AVL em um novo arquivo CSV.  
 O nome deste arquivo é: arquivo_saida.csv  
-# Executar o executável
+# Executar
 1. Tenha um compilador de C++ instalado. Caso não tenha, siga as instruções da página do VS Code: [Using GCC with MinGW](https://code.visualstudio.com/docs/cpp/config-mingw).
 2. Clone o repositório.
 3. Execute o programa com o comando: _.\main.exe_. **Adendo**: é possível que a execução demore para começar devido à quantidade de arquivos necessários.
